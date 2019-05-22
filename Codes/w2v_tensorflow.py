@@ -17,14 +17,12 @@ def modified_unigram_dist(sentences):
                 word_freq[word] = 0
             word_freq[word] += 1
   
-    # vocab size
     V = len(word_freq)
 
     p_neg = np.zeros(V)
     for j in range(V):
         p_neg[j] = word_freq[j]**0.75
 
-    # normalize it
     p_neg = p_neg / p_neg.sum()
 
     assert(np.all(p_neg > 0))
